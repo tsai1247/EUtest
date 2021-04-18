@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EUTest</string>
+    <string name="stage_label">Stage</string>
+    <string name="default_stagenum">1</string>
+    <string name="attack">Attack</string>
+    <string name="_0">0</string>
+    <string name="reset">Reset</string>
+</resources>
