@@ -1,24 +1,19 @@
 package com.tsai1247.eutest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -46,13 +41,13 @@ public class MainActivity extends Activity {
         mAdView = findViewById(R.id.adView);
 
         try{
-            et.setText(readFromFile("tmp.txt"));
+            et.setText( readFromFile("tmp.txt").substring(1) );
         }catch (Exception e)
         {
             et.setText("1");
         }
         try{
-            tv2.setText(readFromFile("tmp2.txt"));
+            tv2.setText( readFromFile("tmp2.txt").substring(1)  );
         }catch (Exception e)
         {
             tv2.setText("0");
@@ -61,11 +56,14 @@ public class MainActivity extends Activity {
         btn.setOnClickListener(e->{
             int cur;
             try {
+
                 cur = Integer.parseInt(et.getText().toString());
+
             }catch (Exception ee)
             {
                 cur = 1;
             }
+
             if(cur<1)
                 cur = 1;
             int answer = (int) Math.ceil(Math.random()*cur);
@@ -100,6 +98,20 @@ public class MainActivity extends Activity {
 
     }
 
+    private String precess(String str) {
+        Log.e("str", "\"" + str + "\"");
+        String ret = "";
+        for(int i=0; i<str.length(); i++)
+        {
+            if(str.indexOf(i)<='9' &&  str.indexOf(i)>='0') {
+                ret += String.valueOf(str.indexOf(i));
+                Log.e("Success", ret);
+            }
+            else
+                Log.e("i don\'t know", String.valueOf(str.indexOf(i)));
+        }
+        return ret;
+    }
 
 
     private void writeToFile(String filename, String data) {
