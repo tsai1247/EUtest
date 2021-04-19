@@ -1,3 +1,7 @@
 # EUtest
-A simple game to test you luck.
-* To step a stage, you need luck of "1/stageNum".
+```
+A simple game to test your luck.
+```
+# TODO
+- add Android bird
+    - let bird help you get more chance to upgrade
