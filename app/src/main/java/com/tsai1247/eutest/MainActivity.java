@@ -144,8 +144,8 @@ public class MainActivity extends Activity {
                 acc = 0;
             }
 
-            System.out.println("Value: " + String.valueOf( acc ) );
-            System.out.println(" Test: " + androidBird.getY());
+//            System.out.println("Value: " + String.valueOf( acc ) );
+//            System.out.println(" Test: " + androidBird.getY());
         }
         void fly(){
             acc = -10;
